@@ -1,0 +1,25 @@
+# ================================================================
+# demo.yaml — 演示场景参数
+# 用于 demo/答辩时的固定参数配置
+# ================================================================
+
+demo:
+  name: "standard_demo"
+  random_seed: 42
+  duration_sec: 120
+
+simulator:
+  sample_rate: 100.0
+  channel_count: 8
+  signal_amplitude: 1.0
+  signal_frequency: 1.0
+  noise_amplitude: 0.05    # 演示时降低噪声，使效果更清晰
+
+inference:
+  model_name: "threshold"
+  confidence_threshold: 0.5
+
+recording:
+  enabled: true
+  output_dir: outputs/bags
+  compress: true

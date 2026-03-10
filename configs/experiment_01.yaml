@@ -1,0 +1,27 @@
+# ================================================================
+# experiment_01.yaml — 实验一参数配置模板
+# 拷贝此文件作为新实验的起点
+# ================================================================
+
+experiment:
+  name: "experiment_01"
+  description: "基线性能验证"
+  random_seed: 42
+  duration_sec: 300
+  repeat: 3
+
+simulator:
+  sample_rate: 100.0
+  channel_count: 8
+  signal_amplitude: 1.0
+  signal_frequency: 1.0
+  noise_amplitude: 0.1
+
+inference:
+  model_name: "threshold"
+  confidence_threshold: 0.5
+
+metrics:
+  compute_accuracy: true
+  compute_latency: true
+  output_dir: outputs/reports

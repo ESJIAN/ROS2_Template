@@ -1,0 +1,102 @@
+# =============================================================
+#  ROS2 Project Template — .gitignore
+# =============================================================
+
+# ─── Build artifacts ─────────────────────────────────────────
+build/
+install/
+log/
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# ─── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.egg
+.eggs/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── C / C++ ─────────────────────────────────────────────────
+*.o
+*.a
+*.so
+*.out
+*.dSYM/
+
+# ─── CMake ───────────────────────────────────────────────────
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# ─── ROS2 / Colcon ───────────────────────────────────────────
+COLCON_IGNORE
+AMENT_IGNORE
+
+# ─── Datasets & large outputs (use DVC or Git LFS instead) ───
+datasets/raw/*
+datasets/processed/*
+datasets/models/*
+outputs/bags/*
+outputs/logs/*
+outputs/reports/*
+outputs/figures/*
+!datasets/raw/.gitkeep
+!datasets/processed/.gitkeep
+!datasets/models/.gitkeep
+!outputs/bags/.gitkeep
+!outputs/logs/.gitkeep
+!outputs/reports/.gitkeep
+!outputs/figures/.gitkeep
+
+# ─── ROS bag files ───────────────────────────────────────────
+*.bag
+*.db3
+*.mcap
+
+# ─── Machine-learning model weights ─────────────────────────
+*.pt
+*.pth
+*.onnx
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+
+# ─── Editor / IDE ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Environment / secrets ───────────────────────────────────
+.env
+.env.*
+*.secret
+secrets/
+
+# ─── Docker ──────────────────────────────────────────────────
+docker/.env
+
+# ─── Jupyter Notebooks outputs ───────────────────────────────
+*.ipynb_checkpoints/
+
+# ─── Coverage ────────────────────────────────────────────────
+.coverage
+htmlcov/
+coverage.xml

@@ -1,0 +1,39 @@
+version: "3.8"
+
+# ================================================================
+# compose.yaml — Docker Compose for ROS2 Template
+# ================================================================
+
+services:
+  ros2:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      args:
+        ROS_DISTRO: humble
+    image: ros2_template:humble
+    container_name: ros2_template_dev
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - ROS_DOMAIN_ID=0
+    volumes:
+      # Mount source code for live editing
+      - ../ros2_ws/src:/workspace/ros2_ws/src
+      # Mount configs
+      - ../configs:/workspace/configs
+      # Mount outputs
+      - ../outputs:/workspace/outputs
+      - ../datasets:/workspace/datasets
+      # X11 forwarding for GUI (Linux)
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    network_mode: host
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  # Optional: Foxglove Studio bridge for web-based visualization
+  # foxglove:
+  #   image: ghcr.io/foxglove/studio:latest
+  #   ports:
+  #     - "8080:8080"
+  #   network_mode: host

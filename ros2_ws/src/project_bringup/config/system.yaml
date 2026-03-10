@@ -1,0 +1,32 @@
+# ================================================================
+# system.yaml — 系统全局配置（由 project_bringup 管理）
+# ================================================================
+
+system:
+  mode: simulation          # simulation | hardware | replay
+  log_level: INFO           # DEBUG | INFO | WARN | ERROR
+  use_sim_time: false
+
+# ── Topic 名称映射（统一在此管理）────────────────────────────────
+topics:
+  sensor_raw: /sensor/raw
+  sensor_processed: /sensor/processed
+  inference_result: /result/inference
+  control_command: /command/control
+  system_status: /system/status
+
+# ── QoS 配置 ──────────────────────────────────────────────────
+qos:
+  sensor_data:
+    reliability: best_effort
+    history: keep_last
+    depth: 10
+  control_command:
+    reliability: reliable
+    history: keep_last
+    depth: 5
+  status:
+    reliability: reliable
+    durability: transient_local
+    history: keep_last
+    depth: 1
