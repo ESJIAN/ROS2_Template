@@ -33,7 +33,7 @@ check "pip installed" "command -v pip3"
 # Workspace
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-check "Workspace built" "[[ -d '${ROOT_DIR}/ros2_ws/install' ]]"
+check "Workspace built" "[[ -d '${ROOT_DIR}/src/install' ]]"
 
 echo ""
 echo "Result: ${PASS} passed, ${FAIL} failed"

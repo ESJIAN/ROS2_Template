@@ -43,7 +43,7 @@ pip install -r requirements.txt
 ## 工作空间依赖
 
 ```bash
-cd ros2_ws
+# 在项目根目录下运行
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
@@ -75,5 +75,6 @@ source /opt/ros/humble/setup.bash
 
 ### Q: 依赖包缺失
 ```bash
-cd ros2_ws && rosdep install --from-paths src --ignore-src -r -y
+# 在项目根目录下运行
+rosdep install --from-paths src --ignore-src -r -y
 ```

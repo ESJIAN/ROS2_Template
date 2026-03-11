@@ -5,7 +5,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-WS_DIR="${ROOT_DIR}/ros2_ws"
+WS_DIR="${ROOT_DIR}/src"
 
 USE_RVIZ=true
 
@@ -33,4 +33,8 @@ echo "════════════════════════�
 echo "  ROS2 Template — Demo Launch"
 echo "═══════════════════════════════════════"
 
-ros2 launch project_bringup sim_demo.launch.py use_rviz:="${USE_RVIZ}"
+# 启动应用层（src/application/）中的演示 launch 文件
+# 请根据实际应用层包名修改以下命令：
+# ros2 launch <application_package> sim_demo.launch.py use_rviz:="${USE_RVIZ}"
+echo "[INFO] Please configure the launch command in this script."
+echo "       Edit: scripts/run_demo.sh"

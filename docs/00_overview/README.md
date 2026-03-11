@@ -14,19 +14,23 @@
 
 | 特性 | 说明 |
 |------|------|
-| 模块化架构 | 各功能包职责单一，可独立替换 |
-| 接口统一 | 所有消息/服务/动作在 `project_interfaces` 中集中定义 |
-| 参数外置 | 所有可调参数通过 YAML 配置文件管理 |
+| 五层模块化架构 | 各功能层职责单一，可独立替换 |
+| 接口统一 | 所有消息/服务/动作在 `src/support/` 支撑层中集中定义 |
+| 参数外置 | 所有可调参数通过 `configs/` YAML 配置文件管理 |
 | 实验可复现 | 支持 ROS2 Bag 录制、回放与自动评估 |
 
 ## 系统架构概览
 
 ```
-[数据源/模拟器] → [数据处理/算法] → [控制执行] → [可视化]
-      ↓                  ↓                ↓
-  project_simulator  project_processor  project_controller
-                                               ↓
-                                     project_visualizer
+[支撑层]   src/support/    → 接口定义、驱动、工具库
+    ↓
+[功能层]   src/function/   → 传感器处理、算法模块
+    ↓
+[决策层]   src/decision/   → 行为决策、任务规划
+    ↓
+[执行层]   src/execution/  → 运动控制、机构执行
+    ↓
+[应用层]   src/application/ → 系统启动、可视化、实验工具
 ```
 
 > 详细架构图见 [`../02_system_design/architecture.md`](../02_system_design/architecture.md)

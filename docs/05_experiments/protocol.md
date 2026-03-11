@@ -11,9 +11,9 @@
 **目的**：验证系统基础功能正常运行。
 
 **步骤**：
-1. 启动仿真演示：`ros2 launch project_bringup sim_demo.launch.py`
+1. 启动系统演示：`./scripts/run_demo.sh`
 2. 录制 Bag 文件：`./scripts/record.sh`
-3. 计算指标：`python ros2_ws/src/experiment_tools/scripts/compute_metrics.py`
+3. 计算指标：根据应用层实验工具脚本执行
 
 **评估指标**：
 - 处理延迟（ms）
