@@ -18,7 +18,7 @@ services:
       - ROS_DOMAIN_ID=0
     volumes:
       # Mount source code for live editing
-      - ../ros2_ws/src:/workspace/ros2_ws/src
+      - ../src:/workspace/src
       # Mount configs
       - ../configs:/workspace/configs
       # Mount outputs

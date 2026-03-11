@@ -28,7 +28,7 @@ echo "[OK] ROS_DISTRO=${ROS_DISTRO}"
 
 # ── 安装 ROS2 包依赖 ─────────────────────────────────────────────
 echo "[INFO] Installing ROS2 package dependencies..."
-cd "${ROOT_DIR}/ros2_ws"
+cd "${ROOT_DIR}"
 rosdep install --from-paths src --ignore-src -r -y
 
 # ── 安装 Python 依赖 ─────────────────────────────────────────────

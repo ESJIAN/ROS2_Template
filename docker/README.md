@@ -13,14 +13,14 @@ docker compose up -d
 docker compose exec ros2 bash
 
 # 在容器内启动演示
-ros2 launch project_bringup sim_demo.launch.py
+./scripts/run_demo.sh
 ```
 
 ## 挂载说明
 
 | 宿主机路径 | 容器路径 | 说明 |
 |-----------|---------|------|
-| `../ros2_ws/src` | `/workspace/ros2_ws/src` | 源代码（实时编辑） |
+| `../src` | `/workspace/src` | 源代码（实时编辑） |
 | `../configs` | `/workspace/configs` | 参数配置 |
 | `../outputs` | `/workspace/outputs` | 实验输出 |
 | `../datasets` | `/workspace/datasets` | 数据集 |
@@ -41,7 +41,7 @@ docker compose up
 docker compose exec ros2 bash
 
 # 在容器内重新编译
-cd /workspace/ros2_ws && colcon build --symlink-install
+cd /workspace/src && colcon build --symlink-install
 
 # 停止容器
 docker compose down

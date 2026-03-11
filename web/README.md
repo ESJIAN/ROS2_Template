@@ -1,4 +1,4 @@
-# web_ui/
+# web/
 
 Web 可视化界面目录（可选）。
 
@@ -14,7 +14,7 @@ Web 可视化界面目录（可选）。
 ### 方案 A：Flask + rosbridge（轻量）
 
 ```
-web_ui/
+web/
 ├── app.py               # Flask 应用入口
 ├── requirements.txt     # Flask, flask-cors, etc.
 ├── static/

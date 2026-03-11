@@ -14,7 +14,7 @@
 - 步骤一：（填写）
 - 步骤二：（填写）
 
-**配置参数**：见 `ros2_ws/src/project_processor/config/preprocess.yaml`
+**配置参数**：见 `src/function/<包名>/config/preprocess.yaml`
 
 ---
 
@@ -25,7 +25,7 @@
 **方法**：
 - （填写）
 
-**配置参数**：见 `ros2_ws/src/project_processor/config/feature.yaml`
+**配置参数**：见 `src/function/<包名>/config/feature.yaml`
 
 ---
 
@@ -37,7 +37,7 @@
 - 初级方案：基于规则/阈值
 - 进阶方案：机器学习模型（SVM / 深度学习）
 
-**配置参数**：见 `ros2_ws/src/project_processor/config/inference.yaml`
+**配置参数**：见 `src/function/<包名>/config/inference.yaml`
 
 ---
 

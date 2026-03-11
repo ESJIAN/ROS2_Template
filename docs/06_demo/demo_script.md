@@ -14,7 +14,7 @@
 
 1. **启动系统**（1分钟）
    ```bash
-   ros2 launch project_bringup sim_demo.launch.py
+   ./scripts/run_demo.sh
    ```
    等待所有节点就绪。
 
@@ -36,10 +36,8 @@
 ## 视频录制脚本
 
 ```bash
-# 自动录制演示视频
-python ros2_ws/src/experiment_tools/scripts/record_demo.py \
-  --output outputs/figures/demo.mp4 \
-  --duration 300
+# 录制演示 Bag 数据
+./scripts/record.sh demo_$(date +%Y%m%d)
 ```
 
 ## 演示检查清单

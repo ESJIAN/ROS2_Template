@@ -12,5 +12,5 @@ OUTPUT_PATH="${ROOT_DIR}/outputs/bags/${OUTPUT_NAME}"
 echo "[INFO] Recording to: ${OUTPUT_PATH}"
 echo "       Press Ctrl+C to stop."
 
-python3 "${ROOT_DIR}/ros2_ws/src/experiment_tools/scripts/record_demo.py" \
-    --output "${OUTPUT_PATH}"
+# ROS2 Bag 录制：录制所有话题到指定目录
+ros2 bag record -o "${OUTPUT_PATH}" -a
