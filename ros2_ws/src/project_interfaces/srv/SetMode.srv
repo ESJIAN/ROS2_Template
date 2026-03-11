@@ -1,8 +1,0 @@
-# 设置运行模式服务
-# Request
-string mode     # 目标模式（e.g. "simulation", "hardware", "replay"）
----
-# Response
-bool success
-string message
-string previous_mode

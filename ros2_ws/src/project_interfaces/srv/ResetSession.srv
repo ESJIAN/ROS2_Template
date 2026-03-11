@@ -1,7 +1,0 @@
-# 重置会话服务
-# Request
-string reason   # 重置原因（可选，用于日志）
----
-# Response
-bool success
-string message
