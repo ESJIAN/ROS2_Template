@@ -1,0 +1,15 @@
+# 执行命令 Action
+# Goal
+string command_type
+string target_name
+geometry_msgs/Pose target_pose
+float32 timeout_sec
+---
+# Result
+bool success
+string message
+float32 execution_time_sec
+---
+# Feedback
+float32 progress          # 执行进度 [0.0, 1.0]
+string current_state      # 当前执行状态描述

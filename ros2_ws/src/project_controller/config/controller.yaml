@@ -1,0 +1,12 @@
+# ================================================================
+# controller.yaml — 执行控制节点参数
+# ================================================================
+
+controller_node:
+  ros__parameters:
+    topic_in: /command/safe
+    topic_out: /command/control
+    # 命令映射（高层标签 → 执行器动作名）
+    command_map:
+      class_a: action_a
+      class_b: action_b

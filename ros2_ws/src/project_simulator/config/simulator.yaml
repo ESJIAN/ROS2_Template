@@ -1,0 +1,17 @@
+# ================================================================
+# simulator.yaml — 仿真器参数配置
+# ================================================================
+
+simulator_node:
+  ros__parameters:
+    # 采样参数
+    sample_rate: 100.0          # 采样率（Hz）
+    channel_count: 8            # 通道数
+    # 信号参数
+    signal_amplitude: 1.0       # 信号幅值
+    signal_frequency: 1.0       # 信号频率（Hz）
+    noise_amplitude: 0.1        # 噪声幅值
+    # 可复现性
+    random_seed: 42             # 随机种子（固定以保证可复现）
+    # Topic
+    topic_out: /sensor/raw

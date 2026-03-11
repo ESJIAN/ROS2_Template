@@ -1,0 +1,35 @@
+# ================================================================
+# global_params.yaml — 全局参数（所有包共享）
+# 在各包的 launch 文件中通过 parameters=[global_params] 加载
+# ================================================================
+
+# ── 系统全局设置 ─────────────────────────────────────────────────
+system:
+  project_name: "ROS2_Template"
+  version: "0.1.0"
+  log_level: "INFO"           # DEBUG | INFO | WARN | ERROR
+  use_sim_time: false
+
+# ── Topic 名称（集中管理，保持全局一致）──────────────────────────
+topics:
+  sensor_raw: /sensor/raw
+  sensor_processed: /sensor/processed
+  inference_result: /result/inference
+  control_safe: /command/safe
+  control_command: /command/control
+  system_status: /system/status
+
+# ── 通用传感器参数 ───────────────────────────────────────────────
+sensor:
+  sample_rate: 100.0          # Hz
+  channel_count: 8
+
+# ── 推理参数 ────────────────────────────────────────────────────
+inference:
+  confidence_threshold: 0.6
+  model_name: "threshold"
+
+# ── 安全参数 ────────────────────────────────────────────────────
+safety:
+  min_command_interval_sec: 0.5
+  suppress_repeated: true
