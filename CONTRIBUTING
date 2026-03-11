@@ -1,0 +1,192 @@
+# 🤝 贡献指南 Contributing Guide
+
+感谢你有兴趣为本项目做出贡献！请在参与之前阅读以下规范。
+
+---
+
+## 📑 目录
+
+- [行为准则](#行为准则)
+- [如何贡献](#如何贡献)
+- [开发环境搭建](#开发环境搭建)
+- [分支策略](#分支策略)
+- [提交规范](#提交规范)
+- [Pull Request 流程](#pull-request-流程)
+- [代码风格](#代码风格)
+- [文档贡献](#文档贡献)
+- [问题反馈](#问题反馈)
+
+---
+
+## 行为准则
+
+- 尊重所有参与者，保持友善、专业的交流氛围。
+- 讨论问题时对事不对人，聚焦技术本身。
+- 欢迎提出不同意见，但请以建设性方式表达。
+
+---
+
+## 如何贡献
+
+你可以通过以下方式参与贡献：
+
+| 贡献类型 | 说明 |
+|----------|------|
+| 🐛 Bug 修复 | 发现并修复已知或未知的问题 |
+| ✨ 新功能 | 提出并实现新的功能模块 |
+| 📝 文档改进 | 补充、修正或翻译文档内容 |
+| 🧪 测试用例 | 增加单元测试或集成测试覆盖率 |
+| 🔧 重构优化 | 改善代码结构、性能或可维护性 |
+| 💡 意见建议 | 通过 Issue 提出想法与改进建议 |
+
+---
+
+## 开发环境搭建
+
+```bash
+# 1. Fork 并克隆仓库
+git clone https://github.com/<your-username>/ROS2_Template.git
+cd ROS2_Template
+
+# 2. 安装依赖
+pip install -r requirements.txt
+
+# 3. 搭建 ROS2 环境（推荐使用 Docker）
+docker compose -f docker/compose.yaml up -d
+
+# 4. 构建工作空间
+bash scripts/build.sh
+
+# 5. 验证环境
+bash scripts/check_env.sh
+```
+
+---
+
+## 分支策略
+
+| 分支 | 用途 |
+|------|------|
+| `main` | 稳定发布分支，仅接受来自 `dev` 的合并 |
+| `dev` | 主开发分支，所有 PR 默认合并至此 |
+| `feature/<name>` | 新功能开发分支 |
+| `fix/<name>` | Bug 修复分支 |
+| `docs/<name>` | 文档更新分支 |
+
+```bash
+# 从 dev 创建新分支
+git checkout dev
+git pull origin dev
+git checkout -b feature/your-feature-name
+```
+
+---
+
+## 提交规范
+
+本项目遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
+
+```
+<type>(<scope>): <subject>
+
+[可选 body]
+
+[可选 footer]
+```
+
+### 类型（type）
+
+| 类型 | 说明 |
+|------|------|
+| `feat` | 新功能 |
+| `fix` | Bug 修复 |
+| `docs` | 文档变更 |
+| `style` | 代码格式（不影响逻辑） |
+| `refactor` | 重构（非新功能、非 Bug 修复） |
+| `test` | 增加或修改测试 |
+| `chore` | 构建流程或工具变更 |
+| `perf` | 性能优化 |
+
+### 示例
+
+```bash
+git commit -m "feat(decision): add state machine for task scheduling"
+git commit -m "fix(execution): resolve motor timeout issue"
+git commit -m "docs(overview): update architecture diagram"
+```
+
+---
+
+## Pull Request 流程
+
+1. 确保你的分支已与 `dev` 同步：
+   ```bash
+   git fetch origin
+   git rebase origin/dev
+   ```
+
+2. 确保代码通过全部测试：
+   ```bash
+   colcon test --packages-select <package_name>
+   ```
+
+3. 提交 PR 时请填写：
+   - **变更描述**：做了什么，为什么这样做
+   - **测试方式**：如何验证此次变更
+   - **关联 Issue**：如 `Closes #123`
+
+4. PR 需至少 **1 位 Reviewer** 审核通过后方可合并。
+
+5. 合并方式统一使用 **Squash and Merge**，保持主线提交历史整洁。
+
+---
+
+## 代码风格
+
+### Python
+
+- 遵循 [PEP 8](https://pep8.org/) 规范
+- 使用 `black` 格式化，`flake8` 检查：
+  ```bash
+  black src/
+  flake8 src/
+  ```
+- 公共函数和类必须添加 docstring
+
+### C++
+
+- 遵循 [ROS2 C++ 风格指南](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html)
+- 使用 `clang-format`（配置文件见 `.clang-format`）：
+  ```bash
+  ament_clang_format --reformat src/
+  ```
+
+### ROS2 通用
+
+- 节点、话题、服务命名遵循 `snake_case`
+- 参数统一写入 `configs/*.yaml`，禁止硬编码
+- 接口定义统一放在 `src/support/` 中的接口包
+
+---
+
+## 文档贡献
+
+- 文档位于 `docs/` 目录，按模块分类
+- 使用 Markdown 格式编写，图片放于对应目录的 `assets/` 子目录
+- 涉及架构变更时，同步更新 `docs/02_system_design/architecture.md`
+- 重大变更记录到 `docs/07_dev_log/CHANGELOG.md`
+
+---
+
+## 问题反馈
+
+- 使用 [GitHub Issues](../../issues) 提交 Bug 或功能请求
+- 提交 Bug 时请包含：
+  - 操作系统 / ROS2 版本
+  - 复现步骤
+  - 期望行为 vs 实际行为
+  - 相关日志或截图
+
+---
+
+感谢你的贡献！🎉
