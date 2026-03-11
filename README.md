@@ -45,6 +45,7 @@ ROS2_Template/
 ├── docs/                   # 📚 全部文档（见下方文档导航）
 ├── scripts/                # 🛠  辅助脚本（setup / build / run / check）
 ├── configs/                # ⚙️  集中参数管理（全局 YAML 配置）
+├── launch/                 # 🚀 顶层 Launch 文件（sim_demo / processing_only / replay_bag）
 ├── datasets/               # 📦 数据集目录（raw / processed / models）
 ├── outputs/                # 📁 产出目录（bags / logs / reports / figures）
 ├── web_ui/                 # 🌐 Web 可视化界面（可选）
